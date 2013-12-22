@@ -4,11 +4,16 @@
 
 file_name = raw_input('please select a new filename or an existing one:')
 
-flashcard_file = open(file_name,'w')
+check_flash_file = open(file_name)
+if  '{' in check_flash_file.read():
+	opened_flashcard_file = open(file_name)
+	flashcard = dict(opened_flashcard_file.read())
+else:
+	flashcard = {}
 
-#if path.isfile(file_name)  ==  False:
+check_flash_file.close()
+opened_flashcard_file.close()
 
-flashcard = {}
 ivd = {v: k for k, v in flashcard.items()}
 x = 0
 
@@ -38,7 +43,10 @@ while x != 'stop':
 	print flashcard
 	print ivd
 
+flashcard_file = open(file_name,'w')
+
 dict_string = str(flashcard)
+
 flashcard_file.write(dict_string)
 flashcard_file.close()
 
