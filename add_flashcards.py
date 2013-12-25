@@ -1,7 +1,5 @@
 #import os.path
 
-
-
 file_name = raw_input('please select a new filename or an existing one:')
 
 check_flash_file = open(file_name)
