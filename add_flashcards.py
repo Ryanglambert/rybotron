@@ -2,15 +2,16 @@
 
 file_name = raw_input('please select a new filename or an existing one:')
 
+check_flash_file = open(file_name,'w')
+check_flash_file.close()
 check_flash_file = open(file_name)
+
 if  '{' in check_flash_file.read():
-	opened_flashcard_file = open(file_name)
-	flashcard = dict(opened_flashcard_file.read())
+	flashcard = dict(check_flash_file.read())
 else:
 	flashcard = {}
 
 check_flash_file.close()
-opened_flashcard_file.close()
 
 ivd = {v: k for k, v in flashcard.items()}
 x = 0
