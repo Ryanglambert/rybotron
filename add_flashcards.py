@@ -2,14 +2,19 @@
 
 file_name = raw_input('please select a new filename or an existing one:')
 
-check_flash_file = open(file_name,'w')
+check_flash_file = open(file_name,'a')
+print 'initial open and write'
 check_flash_file.close()
+print 'initial close'
 check_flash_file = open(file_name)
+print 'open for READ'
 
 if  '{' in check_flash_file.read():
 	flashcard = dict(check_flash_file.read())
+	print "The file exists!"
 else:
 	flashcard = {}
+	print "The file doesn't exist!"
 
 check_flash_file.close()
 
